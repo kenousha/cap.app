@@ -1,0 +1,23 @@
+<Popup modal open={showModal} onClose={() => setShowModal(false)} trigger=
+             {<button onClick={() => handleReview(doctor)} className={`give-review-btn ${reviews.some(review => review.reviewedID === doctor.number) ? 'review-given-review' : ''}`}>
+              {reviews.some(review => review.reviewedID === doctor.number) ? 
+               (<div>Review Given</div>) : (<div>Give Review</div>)}
+             </button> }>
+
+            </Popup>
+
+            <td> 
+            {(close) => (
+            <div> {reviews.some(review => review.reviewedID === doctor.number) ? 
+            (<>
+            <h3 style={{ textAlign: 'center'}}>Review Submited!</h3>
+            {reviews.map((review) => (
+            <div className="reviewInfo" key={review.id} >
+            <p>Thank you for your feedback {review.name}</p>
+            </div>))}
+            </>)
+         : 
+            (<Feedback doctor={reviewedDoctor} onSubmit={handleFormSubmit} onClick={() => handleReview(doctor)}/> )}
+            </div> )}
+
+            </td>

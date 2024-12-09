@@ -1,0 +1,42 @@
+
+.reports-container {
+    width: 80%;
+    margin: 0% 25%;
+    border-radius: 5px;
+    background-color: white;
+    padding: 20px;
+}
+
+.thead {
+    width: 100%;
+    font-weight: bold;
+    text-align: left;
+    background-color: #f2f2f2;
+    padding: 10px;
+    
+}
+
+.table {
+    border-collapse: collapse;
+    justify-content: space-evenly;
+
+}
+
+.td {
+    border-top: 1px solid #ddd;
+    text-align: center;
+
+}
+.report-btn{
+  border: none;
+  border-radius: 7px;
+  background-color: #007bff;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition:  background-color 0.5s ease-in;
+  width: fit-content;
+}
+.report-btn:hover {
+  background-color: #0056b3;
+}

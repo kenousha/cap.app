@@ -1,0 +1,314 @@
+
+nav {
+    padding: 1.5rem;
+    position: sticky;
+    top: 0%;
+    left: 50%;
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+}
+
+.dropdown-menu {
+    position: fixed;
+    top: 100%;
+    left: 0;
+    display: none;
+    min-width: 120px;
+    padding: 8px 0;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+.welcome-user {
+    position: relative;
+    cursor: pointer;
+    transition: 0.2s;
+    color: #0d213f;
+}
+
+.welcome-user:hover {
+    color: #2190ff;
+
+}
+
+.welcome-user:hover .dropdown-menu {
+    display: block;   
+}
+
+.dropdown-menu li {
+    display: block;
+    width: 150px;
+    padding:5px;
+}
+
+.dropdown-menu li a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    z-index: -10;
+}
+
+.dropdown-menu li a:hover {
+    color: #2190ff;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #0d213f;
+    cursor: pointer;
+}
+
+.logo span {
+    color: #3685fb;
+}
+
+.nav__icon {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0%;
+    padding: 0%;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.item {
+    padding: 0 1rem;
+    color: #0d213f;
+        transition: 0.2s;
+
+}
+
+.item :hover {
+    color: #3685fb;
+}
+
+@media (max-width: 1150px) {
+    .logo {
+        margin-right: auto;
+    }
+
+    .nav__icon {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .menu.active {
+        display: flex;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 30%;
+        margin: auto;
+        background-color: #fff;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+        border-radius: 0.5rem;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        animation: slideDown 0.5s ease-in-out;
+    }
+}
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.btn1 {
+    border: 2px solid #3685fb;
+    background-color: white;
+    color: black;
+    border-radius: 50px;
+    height:30px;
+    display:flex;
+    align-items:center; 
+    justify-content:center;
+    margin-top:3px;
+    transition: 0.2s;
+}
+
+.btn1:hover {
+    background-color: #3685fb;
+    color: white;
+}
+
+.btn2 {
+    border: 2px solid #3685fb;
+    background-color: white;
+    color: black;
+    border-radius: 50px;
+    height:30px;
+    display:flex;
+    align-items:center; 
+    justify-content:center;
+    margin-top:3px;
+    transition: 0.3s;
+    position: inherit;
+    z-index: -200;
+}
+
+.btn2:hover {
+    background-color:#3685fb;
+    color:white;
+}
+  .profile-card {
+  position: fixed;
+  top: relative; 
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 15px;
+  width: 145px;
+ 
+}
+.profile-card__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+span {
+    padding-left: 5px;
+}
+.profile-card__list li {
+  padding: 7px;
+}
+
+.profile-card__list li a {
+  text-decoration: none;
+  color: #333;
+}
+
+.profile-card__list li:hover {
+  background-color: #f5f5f5;
+  border: transparent;
+  border-radius: 3px;
+  text-decoration:underline;  
+}
+
+.profile-card__list li:not(:last-child) {
+    border-bottom: transparent;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+.profile-card__list li:not(:first-child) {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+/* Following code has been commented with appropriate comments for your reference.
+*/
+/* Styles for the container holding the profile information */
+.profile-container {
+    max-width: 400px; /* Set the maximum width of the container to 400 pixels */
+    margin: 5% auto; /* Center the container horizontally with a 15% top margin */
+    padding: 20px; /* Add 20 pixels of padding inside the container */
+    background-color: #f5f5f5; /* Set the background color of the container to light gray */
+    border-radius: 4px; /* Apply a border radius of 4 pixels to round the corners */
+}
+
+/* Styles for the heading within the profile container */
+.profile-container h1 {
+    margin-top: 0; /* Remove any top margin from the heading */
+}
+
+/* Styles for the form within the profile container */
+.profile-container form {
+    margin-bottom: 20px; /* Add a bottom margin of 20 pixels to the form */
+}
+
+/* Styles for labels within the profile container */
+.profile-container label {
+    display: block; /* Display labels as block elements to stack them vertically */
+    text-align: left;
+    margin-bottom: 10px; /* Add a bottom margin of 10 pixels to separate labels */
+}
+
+/* Styles for text and email input fields within the profile container */
+.profile-container input[type="text"],
+.profile-container input[type="email"] {
+    width: 100%; /* Set the width of text and email inputs to 100% of the container */
+    padding: 8px; /* Add 8 pixels of padding inside the input fields */
+    border: 1px solid #ccc; /* Apply a 1 pixel solid border with light gray color */
+    border-radius: 4px; /* Round the corners of the input fields with a border radius of 4 pixels */
+}
+
+/* Styles for buttons within the profile container */
+.profile-container button {
+    background-color: #2190ff;
+    color: #fff; 
+    font-size: 1rem;
+    padding: 5px;
+    width: 70%;
+    border-radius: 30px;
+    margin-top: 10px;
+    justify-self: center;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+.profile-container:hover button {
+    
+    transform: scale(0.98);
+}
+
+/* Styles for the container holding additional profile details */
+.profile-details {
+    background-color: #fff; /* Set the background color of details container to white */
+    border-radius: 4px; /* Apply a border radius of 4 pixels to round the corners */
+    padding: 20px; /* Add 20 pixels of padding inside the details container */
+}
+
+/* Styles for headings within the profile details container */
+.profile-details h2 {
+    margin-top: 0; /* Remove any top margin from headings inside details container */
+}
+
+/* Styles for paragraphs within the profile details container */
+.profile-details p {
+    margin-bottom: 10px; /* Add a bottom margin of 10 pixels to separate paragraphs */
+}
+
+/* Styles for buttons within the profile details container */
+.profile-details button {
+    background-color: #2190ff;
+    color: #fff; 
+    font-size: 1rem;
+    padding: 5px;
+    width: 70%;
+    border-radius: 30px;
+    margin-top: 10px;
+    justify-self: center;
+    cursor: pointer;
+    
+
+}
+.profile-details button:hover {
+    transition: all 0.5s ease-in-out;
+    transform: scale(0.98);
+}

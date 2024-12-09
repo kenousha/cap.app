@@ -1,0 +1,29 @@
+.appointment-card-content {
+    width: fit-content;
+    height: 100%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    list-style: none;
+    display: flex;
+    background-color: #007bff; 
+}
+
+.app-details {
+    text-align: left;
+    color: #fff;
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+}
+
+.patient-details {
+    text-align: left;
+    padding: 10px;
+    margin: absolute;    
+    height: fit-content;
+    color: #fff;
+}

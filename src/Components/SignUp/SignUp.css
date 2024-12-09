@@ -1,0 +1,97 @@
+.container-signup {
+    z-index: 11;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    max-width: 20%;
+    height: auto;
+    padding: 0px;
+    margin: 0px auto;
+    overflow: hidden;
+}
+
+.signup-text {
+    padding: 0px; 
+    text-align: center;
+}
+
+.already-member {
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+}
+
+.already-member span {
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+    align-content: center;
+    color: #3c79a7;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.form-group-signup  select {
+    width: 100%;
+    padding: 11px;
+    border: 0.01rem solid #ccc;
+    border-radius: 0.25rem;
+    font-size: 13px;
+}
+.form-group-signup  input {
+    width: 100%;
+    padding: 11px;
+    border: 0.01rem solid #ccc;
+    border-radius: 0.25rem;
+    font-size: 13px;
+}
+.form-group-signup label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.form-group-signup span {
+    font-weight: normal;
+    color: #3c79a7;
+    cursor: pointer;
+}
+
+.btn-group {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    justify-content: center;
+}
+
+
+.submit-btn {
+    margin: 30px;
+    font-size: 1rem;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 40px; 
+    cursor: pointer;
+    background-color: #007bff; 
+    color: #fff;
+}
+.submit-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.03);
+  }
+
+.reset-btn {
+    margin: 30px;
+    font-size: 1rem;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 40px; 
+    cursor: pointer;
+    background-color: #dc3545; /* Set background color for danger button */
+    color: #fff; /* Set text color for danger button */
+}
+.reset-btn:hover {
+    background-color: #a32733;
+    transform: scale(1.03);
+  }
