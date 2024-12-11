@@ -15,7 +15,7 @@ const Notification = ({ children }) => {
   useEffect(() => {
     // Retrieve stored username, doctor data, and appointment data from sessionStorage and sessionStorage
     const storedUsername = sessionStorage.getItem('email');
-    const storedAppointmentData = JSON.parse(sessionStorage.getItem('appointmentData'));
+    const storedAppointmentData = JSON.parse(localStorage.getItem('appointmentData'));
 
 
     // Set isLoggedIn state to true and update username if storedUsername exists
@@ -45,6 +45,7 @@ const Notification = ({ children }) => {
                 <strong>Time Slot:</strong> {appointmentData.time}<br></br>
                 <strong> Patient Name:</strong> {appointmentData.name}<br></br>
                 <strong>Phone Number:</strong> {appointmentData.phone}<br></br>
+                <small>Appointment booked by {username}</small>
               </p>
             </div>
           </div>

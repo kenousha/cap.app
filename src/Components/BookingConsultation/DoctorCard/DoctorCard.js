@@ -8,17 +8,15 @@ import 'reactjs-popup/dist/index.css';
 import AppointmentForm from '../AppointmentForm/AppointmentForm'
 import { v4 as uuidv4 } from 'uuid';
 
-const DoctorCard = ({ name, speciality, experience, ratings, profilePic, onSubmit }) => {
+const DoctorCard = ({ name, speciality, experience, ratings }) => {
     const [showModal, setShowModal] = useState(false);
     const [appointments, setAppointments] = useState(() => {
-      const storedAppointments = sessionStorage.getItem('appointments');
+      const storedAppointments = localStorage.getItem('appointments');
       return storedAppointments ? JSON.parse(storedAppointments) : [];
     });
-
-    const [reloadNeeded, setReloadNeeded] = useState(false); 
       
-    const [isBooked, setIsBooked] = useState(() => {
-      const storedAppointments = sessionStorage.getItem('appointments');
+    const [, setIsBooked] = useState(() => {
+      const storedAppointments = localStorage.getItem('appointments');
       return storedAppointments ? JSON.parse(storedAppointments).length > 0 : false;
     });
   
@@ -27,9 +25,8 @@ const DoctorCard = ({ name, speciality, experience, ratings, profilePic, onSubmi
     };
   
     const handleCancel = (appointmentId) => {
-        sessionStorage.removeItem('appointmentData');
+        localStorage.removeItem('appointmentData');
         setAppointments((prev) => prev.filter((appt) => appt.id !== appointmentId));
-        setReloadNeeded(true);
       };
   
     const handleFormSubmit = (appointmentData) => {
@@ -40,20 +37,15 @@ const DoctorCard = ({ name, speciality, experience, ratings, profilePic, onSubmi
          };
         const updatedAppointments = [...appointments, newAppointment];
         setAppointments(updatedAppointments);
-        setReloadNeeded(true);
         setShowModal(false); 
       };
 
       const handlePopupClose = () => {
         setShowModal(false);
-        if (reloadNeeded) {
-          setReloadNeeded(false); // Reset the reload flag
-          window.location.reload(); // Reload the page
-        }
       };
 
     useEffect(() => { 
-        sessionStorage.setItem('appointments', JSON.stringify(appointments));
+        localStorage.setItem('appointments', JSON.stringify(appointments));
         setIsBooked(appointments.length > 0);
       }, [appointments]);
 
