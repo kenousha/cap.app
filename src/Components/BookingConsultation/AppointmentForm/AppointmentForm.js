@@ -56,7 +56,7 @@ const AppointmentForm = ({ doctorName, doctorSpeciality, onSubmit, date, time })
           <label htmlFor="name">Patient Name:</label>
           <input type="text" id="name" value={name} onChange={handleNameChange} required
           placeholder="Enter name" aria-describedby="Enter name" />
-           <div style={{color:'red', fontSize:'1px'}}>
+           <div style={{color:'red', fontSize:'1px', textAlign:'center'}}>
              {errorName}
             </div>
         </div>
@@ -64,10 +64,10 @@ const AppointmentForm = ({ doctorName, doctorSpeciality, onSubmit, date, time })
          <label for="phone">Phone Number:</label>
           <input value={phone} onChange={handlePhoneChange} type="tel" name="phone" id="phone" required 
           placeholder="Enter phone number" aria-describedby="Enter phone number"/>
-            <div style={{color:'red', fontSize:'1px'}}>
+            <div style={{color:'red', fontSize:'1px', textAlign:'center'}}>
                 {errorPhone}
             </div>
-            <div style={{color:'red', fontSize:'1px'}}>
+            <div style={{color:'red', fontSize:'1px', textAlign:'center'}}>
                 {errorPhoneChar}
             </div>
         </div>
