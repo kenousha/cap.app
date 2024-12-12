@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { useAppointments } from '../../AppointmentsContext';
 import './DoctorCard.css';
 import svg from './/images/0.svg'; import svg1 from './/images/1.svg'; import svg2 from './/images/2.svg';
 import svg3 from './/images/3.svg'; import svg4 from './/images/4.svg'; import svg5 from './/images/5.svg';
@@ -10,41 +11,26 @@ import '../../Notification/Notification.css';
 import { v4 as uuidv4 } from 'uuid';
 
 const DoctorCard = ({ name, speciality, experience, ratings }) => {
-    const [username, setUsername] = useState("");
     const [showModal, setShowModal] = useState(false);
-    useEffect(() => {
-    const storedUsername = sessionStorage.getItem('email');
-    if (storedUsername) {setUsername(storedUsername.split('@')[0])}
-    }, []); 
-    const [appointments, setAppointments] = useState(() => {
-      const storedAppointments = localStorage.getItem('appointments');
-      return storedAppointments ? JSON.parse(storedAppointments) : [];
-    });
+    const { appointments, setAppointments } = useAppointments();
+  
     const handleCancel = (appointmentId) => {
-        localStorage.removeItem('appointmentData');
-        setAppointments((prev) => prev.filter((appt) => appt.id !== appointmentId));
+        const updatedAppointments = appointments.filter((appt) => appt.id !== appointmentId);
+        setAppointments(updatedAppointments);
       };
   
-    const handleFormSubmit = (appointmentData) => {
-        const newAppointment = { 
-            id: uuidv4(), 
-            ...appointmentData,
-            doctorName: name,
-         };
-        const updatedAppointments = [...appointments, newAppointment];
-        setAppointments(updatedAppointments);
-        setShowModal(false); 
-      };
-
-      const handlePopupClose = () => {
+      const handleFormSubmit = (appointmentData) => {
+        const newAppointment = {
+          id: uuidv4(),
+          ...appointmentData,
+          doctorName: name,
+        };
+        setAppointments([...appointments, newAppointment]);
         setShowModal(false);
       };
+    
 
-    useEffect(() => { 
-        localStorage.setItem('appointments', JSON.stringify(appointments));
-      }, [appointments]);
-
-      const doctorAppointments = appointments?.filter((appt) => appt.doctorName === name) || [];
+    const doctorAppointments = appointments.filter((appt) => appt.doctorName === name);
 
     const getDoctorImage = (name) => {
         switch (name) {
@@ -74,28 +60,6 @@ const DoctorCard = ({ name, speciality, experience, ratings }) => {
         </div>
       </div>
       <div>
-        {doctorAppointments.length > 0 ?(<>
-            {doctorAppointments.map((appointment) => (
-          <div className="appointment-card-container" style={{ zIndex:'10', position:'fixed', left:'0', bottom:'0'}}>
-            <div className="appointment-card-content">
-              <p className="app-details">
-                <small>
-               <h3 className="appointment-card__title">Appointment Details</h3>
-                <strong>Doctor:</strong> {appointment.doctorName}<br></br>
-                <strong>Speciality:</strong> {appointment.doctorSpeciality}<br></br>
-                <strong>Date:</strong> {appointment.date}<br></br>
-                <strong>Time Slot:</strong> {appointment.time}<br></br>
-                <strong> Patient Name:</strong> {appointment.name}<br></br>
-                <strong>Phone Number:</strong> {appointment.phone}<br></br>
-                <p style={{fontSize:'1px', fontStyle:'italic'}}>Appointment booked by {username}</p>
-                </small>
-              </p>
-            </div>
-          </div>
-        ))}
-
-        </>
-      ):(<></>)}
       </div>
       <div className="bc-dr-card-options-container">
        <Popup
@@ -109,7 +73,6 @@ const DoctorCard = ({ name, speciality, experience, ratings }) => {
               )}
             </button>
           }
-          onClose= {handlePopupClose}
         >
           {() => (
             <div className="bc-doctorbg" style={{height:'fit-content'}}>

@@ -1,68 +1,43 @@
 // Following code has been commented with appropriate comments for your reference.
 import React, { useEffect, useState } from 'react';
-import Navbar from '../Navbar/Navbar';
 import './Notification.css'
-
+import { useAppointments } from '../../Components/AppointmentsContext';
 // Function component Notification to display user notifications
-const Notification = ({ children }) => {
-  // State variables to manage user authentication, username, doctor data, and appointment data
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [username, setUsername] = useState("");
-  const [appointmentData, setAppointmentData] = useState(null);
-
-
-  // useEffect hook to perform side effects in the component
-  useEffect(() => {
-    // Retrieve stored username, doctor data, and appointment data from sessionStorage and sessionStorage
-    const storedUsername = sessionStorage.getItem('email');
-    const storedAppointmentData = JSON.parse(localStorage.getItem('appointmentData'));
-
-
-    // Set isLoggedIn state to true and update username if storedUsername exists
-    if (storedUsername) {
-      setIsLoggedIn(true);
-      setUsername(storedUsername.split('@')[0]);
-    }
-    if (storedAppointmentData) {
-        setAppointmentData(storedAppointmentData);
-      }
-    }, []);
-  // Return JSX elements to display Navbar, children components, and appointment details if user is logged in
+const Notification = () => {
+    const { appointments } = useAppointments();
+    const [isLoggedIn, setIsLoggedIn] = useState("");
+    const [username, setUsername] = useState("");
+  
+    useEffect(() => {
+        const storedUsername = sessionStorage.getItem('email');
+        if (storedUsername) {
+            setIsLoggedIn(true);
+            setUsername(storedUsername.split('@')[0]);
+          }
+        }, []);
   return (
     <div>
-      <Navbar/>
-      {children}
-      {isLoggedIn ? (<>{appointmentData ?(
-        <div className="appointment-card-container" style={{ zIndex:'-10', position:'fixed', left:'0', bottom:'0'}}>
-        <div className="appointment-card-content">
-          <p className="app-details">
-           <h3 className="appointment-card__title">Appointment Details</h3>
-            <strong>Doctor:</strong> {appointmentData.doctorName}<br></br>
-            <strong>Speciality:</strong> {appointmentData.doctorSpeciality}<br></br>
-            <strong> Date:</strong> {appointmentData.date}<br></br>
-            <strong>Time Slot:</strong> {appointmentData.time}<br></br>
-            <strong> Patient Name:</strong> {appointmentData.name}<br></br>
-            <strong>Phone Number:</strong> {appointmentData.phone}<br></br>
-          </p>
-        </div>
-      </div>
-    ):(<>{isLoggedIn && appointmentData&&(
-        <div className="appointment-card-container" style={{ zIndex:'-10', position:'fixed', left:'0', bottom:'0'}}>
-        <div className="appointment-card-content">
-          <p className="app-details">
-           <h3 className="appointment-card__title">Appointment Details</h3>
-            <strong>Doctor:</strong> {appointmentData.doctorName}<br></br>
-            <strong>Speciality:</strong> {appointmentData.doctorSpeciality}<br></br>
-            <strong>Date:</strong> {appointmentData.date}<br></br>
-            <strong>Time Slot:</strong> {appointmentData.time}<br></br>
-            <strong> Patient Name:</strong> {appointmentData.name}<br></br>
-            <strong>Phone Number:</strong> {appointmentData.phone}<br></br>
-          </p>
-        </div>
-      </div>
-      )}</>)
-        }</>
-      ):(null)}
+      {isLoggedIn && appointments.length > 0 &&(<>
+            {appointments.map((appointment) => (
+          <div className="appointment-card-container" style={{ zIndex:'10', position:'fixed', left:'0', bottom:'0'}}>
+            <div className="appointment-card-content">
+              <p className="app-details">
+                <small>
+               <h3 className="appointment-card__title">Appointment Details</h3>
+                <strong>Doctor:</strong> {appointment.doctorName}<br></br>
+                <strong>Speciality:</strong> {appointment.doctorSpeciality}<br></br>
+                <strong>Date:</strong> {appointment.date}<br></br>
+                <strong>Time Slot:</strong> {appointment.time}<br></br>
+                <strong> Patient Name:</strong> {appointment.name}<br></br>
+                <strong>Phone Number:</strong> {appointment.phone}<br></br>
+                <p style={{fontSize:'1px', fontStyle:'italic'}}>Reserved by: {username}</p>
+                </small>
+              </p>
+            </div>
+          </div>
+        ))}
+        </>
+      )}
     </div>
   );
 };
