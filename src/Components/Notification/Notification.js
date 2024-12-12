@@ -19,7 +19,7 @@ const Notification = () => {
     <div>
       {isLoggedIn && appointments.length > 0 &&(<>
             {appointments.map((appointment) => (
-          <div className="appointment-card-container" style={{ zIndex:'10', position:'fixed', left:'0', bottom:'0'}}>
+          <div className="appointment-card-container" style={{ zIndex:'1', position:'fixed', left:'0', bottom:'0'}}>
             <div className="appointment-card-content">
               <p className="app-details">
                 <small>
@@ -30,7 +30,7 @@ const Notification = () => {
                 <strong>Time Slot:</strong> {appointment.time}<br></br>
                 <strong> Patient Name:</strong> {appointment.name}<br></br>
                 <strong>Phone Number:</strong> {appointment.phone}<br></br>
-                <p style={{fontSize:'1px', fontStyle:'italic'}}>Reserved by: {username}</p>
+                <p style={{fontSize:'1px', fontStyle:'italic'}}>Appointment made by:<br/> {username}</p>
                 </small>
               </p>
             </div>

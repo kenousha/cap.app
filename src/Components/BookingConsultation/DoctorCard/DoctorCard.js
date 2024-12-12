@@ -79,10 +79,10 @@ const DoctorCard = ({ name, speciality, experience, ratings }) => {
              <div style={{display: 'grid', placeItems: 'center'}}>
              <img style={{width:'200px', height:'200px'}} src={getDoctorImage(name)} alt="" />
               <div style={{textAlign:'center'}}>
-                <div style={{fontWeight:'bold'}}>{name}</div>
+                <strong>{name}</strong>
                 <div>{speciality}</div>
-                <div style={{fontWeight:'bold', color:'#888'}}>{experience} years experience</div>
-                <div style={{fontWeight:'bold', marginBottom:'5px'}}>Ratings: {ratings}</div>
+                <strong style={{color:'#888'}}>{experience} years experience</strong><br/>
+                <strong style={{marginBottom:'5px'}}>Ratings: {ratings}</strong>
               </div>
              </div>
               {doctorAppointments.length > 0 ? (
