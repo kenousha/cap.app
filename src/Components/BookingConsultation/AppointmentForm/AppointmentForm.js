@@ -3,7 +3,6 @@ import React, {useState} from 'react'
 const AppointmentForm = ({ doctorName, doctorSpeciality, onSubmit, date, time }) => {
     const [phone, setPhone] = useState('');
     const [errorPhone, setErrorPhone] = useState('');
-    const [errorPhoneChar, setErrorPhoneChar] = useState(''); 
     const [name, setName] = useState('');
     const [errorName, setErrorName] = useState(''); 
     const nameRegex = /^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s\-']+$/;
@@ -16,9 +15,7 @@ const AppointmentForm = ({ doctorName, doctorSpeciality, onSubmit, date, time })
         setPhone(value);
         if (phoneRegex.test(value)&&(value.length === 10)){input.setCustomValidity('')}
         else {input.setCustomValidity('Please enter a valid phone number')};
-        if (phoneRegex.test(value)){setErrorPhoneChar('')}
-        else {setErrorPhoneChar('Invalid character')};
-        if (value.length === 10){setErrorPhone('')}
+        if (value.length === 10 && phoneRegex.test(value)){setErrorPhone('')}
         else {setErrorPhone('Must contain 10 digits')};
     };
       const handleNameChange = (e) => {
@@ -58,7 +55,7 @@ const AppointmentForm = ({ doctorName, doctorSpeciality, onSubmit, date, time })
           placeholder="Enter name" aria-describedby="Enter name" />
            <div style={{color:'red', fontSize:'1px', textAlign:'center'}}>
              {errorName}
-            </div>
+          </div>
         </div>
         <div className="bc-form-group">
          <label for="phone">Phone Number:</label>
@@ -67,9 +64,7 @@ const AppointmentForm = ({ doctorName, doctorSpeciality, onSubmit, date, time })
             <div style={{color:'red', fontSize:'1px', textAlign:'center'}}>
                 {errorPhone}
             </div>
-            <div style={{color:'red', fontSize:'1px', textAlign:'center'}}>
-                {errorPhoneChar}
-            </div>
+            
         </div>
         <div className="bc-form-group">
           <label htmlFor="date">Appointment Date:</label>
