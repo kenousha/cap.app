@@ -121,7 +121,7 @@ const SignUp = () => {
         </div>
         <form method="POST" onSubmit={register}>
             <div className="form-group-signup">
-                <label for="role">Role</label>
+                <label htmlFor="role">Role</label>
                 <select onChange={handleRoleChange} value={role} type="role" id="role" required className="form-control" name="role">
                     <option value="" aria-describedby="Select your role">-Select your role-</option>
                     <option value="dr" aria-describedby="Doctor">Doctor</option>
@@ -144,8 +144,8 @@ const SignUp = () => {
             </div>
 
             <div className="form-group-signup">
-                <label for="phone">Phone</label>
-                <input value={phone} onChange={handlePhoneChange} type="tel" name="phone" id="phone" required className="form-control" minlength="10" maxlength="10" placeholder="Enter your phone number" aria-describedby="Phone number input box" />
+                <label htmlFor="phone">Phone</label>
+                <input value={phone} onChange={handlePhoneChange} type="tel" name="phone" id="phone" required className="form-control" minLength="10" maxLength="10" placeholder="Enter your phone number" aria-describedby="Phone number input box" />
                                 {showerr && <div className="err" style={{ color: 'red' }}>{showerr}</div>}
                 <div style={{color:'red', textAlign:'center'}}>{errorPhone}</div>      
             </div> 

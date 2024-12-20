@@ -86,9 +86,10 @@ nav {
 }
 
 .item {
-    padding: 0 1rem;
+    padding: 0rem;
+    margin: 0rem 1rem;
     color: #0d213f;
-        transition: 0.2s;
+    transition: 0.2s;
 
 }
 
@@ -141,6 +142,7 @@ nav {
 }
 
 .btn1 {
+    cursor: pointer;
     border: 2px solid #3685fb;
     background-color: white;
     color: black;
@@ -149,7 +151,6 @@ nav {
     display:flex;
     align-items:center; 
     justify-content:center;
-    margin-top:3px;
     transition: 0.2s;
 }
 
@@ -159,6 +160,7 @@ nav {
 }
 
 .btn2 {
+    cursor: pointer;
     border: 2px solid #3685fb;
     background-color: white;
     color: black;
@@ -167,10 +169,8 @@ nav {
     display:flex;
     align-items:center; 
     justify-content:center;
-    margin-top:3px;
     transition: 0.3s;
     position: inherit;
-    z-index: -200;
 }
 
 .btn2:hover {

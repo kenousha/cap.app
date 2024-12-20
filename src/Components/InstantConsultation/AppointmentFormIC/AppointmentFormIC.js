@@ -61,7 +61,7 @@ const AppointmentForm = ({ doctorName, doctorSpeciality, onSubmit, date, time })
             </div>
         </div>
         <div className="form-group">
-         <label for="phone">Phone Number:</label>
+         <label htmlFor="phone">Phone Number:</label>
           <input value={phone} onChange={handlePhoneChange} type="tel" name="phone" id="phone" required 
           placeholder="Enter phone number" aria-describedby="Enter phone number"/>
             <div style={{color:'red', fontSize:'1px', textAlign:'center'}}>

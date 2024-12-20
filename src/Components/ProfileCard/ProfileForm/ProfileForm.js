@@ -134,7 +134,7 @@ const handleNameChange = (e) => {
          </label>
          <label>
          Phone
-          <input name="phone" value={updatedDetails.phone} onChange={handlePhoneChange}  type="tel" id="phone" required className="form-control" minlength="10" maxlength="10" aria-describedby="Phone number input box" />
+          <input name="phone" value={updatedDetails.phone} onChange={handlePhoneChange}  type="tel" id="phone" required className="form-control" minLength="10" maxLength="10" aria-describedby="Phone number input box" />
           {errorPhone && <div className="err" style={{ color: 'red', textAlign: 'center'}}>{errorPhone}</div>}
          </label>
           <button type="submit">Save</button>
