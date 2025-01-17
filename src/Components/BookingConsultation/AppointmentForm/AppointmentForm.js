@@ -51,7 +51,7 @@ const AppointmentForm = ({ doctorName, doctorSpeciality, onSubmit, date, time })
       <form onSubmit={handleFormSubmit} className="bc-appointment-form">
         <div className="bc-form-group">
           <label htmlFor="name">Patient Name:</label>
-          <input type="text" id="name" value={name} onChange={handleNameChange} required
+          <br/><input type="text" id="name" value={name} onChange={handleNameChange} required
           placeholder="Enter name" aria-describedby="Enter name" />
            <div style={{color:'red', fontSize:'1px', textAlign:'center'}}>
              {errorName}
@@ -59,7 +59,7 @@ const AppointmentForm = ({ doctorName, doctorSpeciality, onSubmit, date, time })
         </div>
         <div className="bc-form-group">
          <label htmlFor="phone">Phone Number:</label>
-          <input value={phone} onChange={handlePhoneChange} type="tel" name="phone" id="phone" required 
+          <br/><input value={phone} onChange={handlePhoneChange} type="tel" name="phone" id="phone" required 
           placeholder="Enter phone number" aria-describedby="Enter phone number"/>
             <div style={{color:'red', fontSize:'1px', textAlign:'center'}}>
                 {errorPhone}
@@ -68,10 +68,11 @@ const AppointmentForm = ({ doctorName, doctorSpeciality, onSubmit, date, time })
         </div>
         <div className="bc-form-group">
           <label htmlFor="date">Appointment Date:</label>
-          <input type="date" id="date" value={date} onChange={(e) => (date= e.target.value)} required/>
+          <br/><input type="date" id="date" value={date} onChange={(e) => (date= e.target.value)} required/>
         </div>
         <div className="bc-form-group">
           <label htmlFor="time">Appointment Time:</label>
+                <br/>
                 <select type="time" id="time" value={time} onChange={(e) => (time= e.target.value)} required>
                     <option value="" aria-describedby="Select a time slot">-Select a time slot-</option>
                     <option value="10:00 AM" aria-describedby="10:00 AM">10:00AM</option>
