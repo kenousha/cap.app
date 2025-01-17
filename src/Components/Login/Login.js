@@ -56,7 +56,7 @@ const Login = () => {
             </div>
 
             <div className="new-member"> Are you a new member?
-                <Link to="/SignUp"><span> Sign Up</span></Link>
+                <br/><Link to="/SignUp"><span> Sign Up</span></Link>
             </div> 
             
         <form onSubmit={login}>
